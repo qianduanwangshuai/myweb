@@ -19,17 +19,17 @@ $(function () {
     // 启用轮播效果--swiper插件
     function startImg() {
         return new Promise(function (resolve, reject) {
-            new Swiper ('.swiper-container', {
+            new Swiper('.swiper-container', {
                 loop: true,
-              
+
                 // 如果需要分页器
                 pagination: {
-                  el: '.swiper-pagination',
+                    el: '.swiper-pagination',
                 }
             });
             // 成功函数
             resolve();
-        });  
+        });
     }
 
     // ---------------------------
@@ -68,41 +68,38 @@ $(function () {
     }
 
 
-
     // 页面加载后触发事件
     $(document).on('pageInit', function () {
         // 处理轮播图
         getImg()
-        .then(renderImg)
-        .then(startImg)
-        .then(function () {
-            $.toast('success');
-        })
-        .catch(function () {
-            $.toast('err');
-        });
+            .then(renderImg)
+            .then(startImg)
+            .then(function () {
+                $.toast('success');
+            })
+            .catch(function () {
+                $.toast('err');
+            });
 
         // 分类部分
         getFenlei()
-        .then(renderFenlei)
-        .then(function () {
-            $.toast('success1');
-        })
-        .catch(function () {
-            $.toast('err1')
-        });
+            .then(renderFenlei)
+            .then(function () {
+                $.toast('success1');
+            })
+            .catch(function () {
+                $.toast('err1')
+            });
 
         // 列表详情
         getList()
-        .then(renderList)
-        .then(function () {
-            $.toast('success2');
-        })
-        .catch(function () {
-            $.toast('err2');
-        });
-
-
+            .then(renderList)
+            .then(function () {
+                $.toast('success2');
+            })
+            .catch(function () {
+                $.toast('err2');
+            });
 
 
     });
